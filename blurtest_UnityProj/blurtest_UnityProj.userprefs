@@ -1,17 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/Shaders/BlurFilter.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../git_YUI/yui/Assets/Scripts/test/yuya/EffectManager.cs">
     <Files>
       <File FileName="Assets/Resources/Shaders/BlurObject.shader" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Bloom/ShinePostEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Image Effects (Pro Only)/_Sources/Shaders/GlowEffectDownsample.shader" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Shaders/BrightnessFilter.shader" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Shaders/BloomFilter.shader" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Image Effects (Pro Only)/_Sources/Shaders/_BloomAndFlares/MobileBlur.shader" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Image Effects (Pro Only)/BlurEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Image Effects (Pro Only)/_Sources/Shaders/_BloomAndFlares/MultiPassHollywoodFlares.shader" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Image Effects (Pro Only)/_Sources/Shaders/_BloomAndFlares/LensFlareCreate.shader" Line="1" Column="1" />
-      <File FileName="Assets/Resources/Shaders/BlurFilter.shader" Line="129" Column="13" />
+      <File FileName="Assets/Resources/Shaders/gravity.shader" Line="32" Column="13" />
+      <File FileName="Assets/Resources/Shaders/BrightnessFilter.shader" Line="14" Column="28" />
+      <File FileName="../../git_YUI/yui/Assets/Scripts/test/yuya/EffectManager.cs" Line="136" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,7 +18,7 @@
           <Node name="Assembly-CSharp-firstpass" expanded="True">
             <Node name="Resources" expanded="True">
               <Node name="Shaders" expanded="True">
-                <Node name="BlurFilter.shader" selected="True" />
+                <Node name="gravity.shader" selected="True" />
               </Node>
             </Node>
             <Node name="Standard Assets" expanded="True">
