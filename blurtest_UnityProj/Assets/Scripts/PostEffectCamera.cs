@@ -41,6 +41,19 @@ public class PostEffectCamera : MonoBehaviour {
 		cam.Render();
 //		cam.RenderWithShader(shader,"Heat");
 
+
+		//here you can add many phase as you want
+		//********
+
+		//********
+
+		//********
+
+		//********
+
+		//********
+
+
 		//put back RenderTarget to 
 		RenderTexture.active = currentRT; 
 	}
