@@ -11,12 +11,26 @@ public class ExplosionBlur : MonoBehaviour {
 	public float time = 0.5f;
 	Material mat;
 
+	private float currentTime = 0;
+	private float needChangePower = 0;
+
 	void Start(){
 		Shader shd = (isExplode) ? Shader.Find("Custom/ExplosionBlur") : Shader.Find("Custom/ExplosionBlurInside");
 		mat = new Material( shd );
 		mat.SetFloat("_CenterTexelX",centerX);
 		mat.SetFloat("_CenterTexelY",centerY);
+		needChangePower = maxExpPower - expPower;
 //		HOTween.To (this, time, new TweenParms ().Prop ("expPower", maxExpPower).OnComplete(ExplosionCompleteHandler));
+	}
+
+	void Update(){
+		currentTime += Time.deltaTime;
+		expPower += needChangePower * (Time.deltaTime / time);
+
+		if (currentTime >= time) 
+			ExplosionCompleteHandler ();
+
+				
 	}
 
 	void ExplosionCompleteHandler(){
