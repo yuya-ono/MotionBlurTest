@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Heat : MonoBehaviour {
 
-	PostEffectCamera post;
+	PostEffectCameraHeat post;
 	Material heatMat;
 
 	void Start(){
 		heatMat = new Material( Shader.Find("Custom/Heat") );
-		post = GameObject.Find("PostEffectCamera").GetComponent<PostEffectCamera>();
+		post = GameObject.Find("PostEffectCamera").GetComponent<PostEffectCameraHeat>();
 	}
 
 	void HeatFilter(RenderTexture source, RenderTexture heatTex, RenderTexture dest){
