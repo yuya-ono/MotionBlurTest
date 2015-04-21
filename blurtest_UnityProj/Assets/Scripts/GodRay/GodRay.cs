@@ -104,7 +104,8 @@ public class GodRay : MonoBehaviour {
 
 		//****** Single Sun Bloom Texture  ok ****** 
 		RenderTexture bufferSingleSunBloom = RenderTexture.GetTemporary(rtW, rtH, 0);
-		GraphicsConvert.BloomFilter(post.SunTexture, bufferSingleSunBloom, 10.0f);
+		GraphicsConvert.BloomExtractFilter(post.SunTextureAlpha, bufferSingleSunBloom, 5.0f);
+		Graphics.Blit( bufferSingleSunBloom, dest);
 
 		//****** Multiplied (Radial Blur Terrain Silhouett) X (Single Sun Bloom Texture) = GODRAY IMAGE ************
 		RenderTexture bufferGodRay = RenderTexture.GetTemporary(rtW, rtH, 0);

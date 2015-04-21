@@ -6,6 +6,7 @@ public class PostEffectCameraGodRay : PostEffectCamera {
 //	RenderTexture terrainSilhouetteTexture;
 	RenderTexture godRaySilhouetteTexture;
 	RenderTexture sunTexture;
+	RenderTexture sunTextureAlpha;
 
 	public Shader maskShader;
 //	public Shader sunShader;
@@ -21,6 +22,9 @@ public class PostEffectCameraGodRay : PostEffectCamera {
 	public RenderTexture SunTexture{
 		get{return sunTexture;}
 	}
+	public RenderTexture SunTextureAlpha{
+		get{return sunTextureAlpha;}
+	}
 
 
 	// Use this for initialization
@@ -30,6 +34,8 @@ public class PostEffectCameraGodRay : PostEffectCamera {
 		godRaySilhouetteTexture.Create();
 		sunTexture = new RenderTexture((int)cam.pixelWidth, (int)cam.pixelHeight, 32, RenderTextureFormat.ARGBFloat);
 		sunTexture.Create();
+		sunTextureAlpha = new RenderTexture((int)cam.pixelWidth, (int)cam.pixelHeight, 32, RenderTextureFormat.ARGBFloat);
+		sunTextureAlpha.Create();
 	}
 
 
@@ -67,6 +73,11 @@ public class PostEffectCameraGodRay : PostEffectCamera {
 		cam.targetTexture = sunTexture;
 		cam.cullingMask = 1 << 8;
 		Shader.SetGlobalColor ("_MaskColor", Color.white);
+		cam.RenderWithShader(maskShader, "");
+
+		//**** Sun Texture Alpha
+		cam.targetTexture = sunTextureAlpha;
+		Shader.SetGlobalColor ("_MaskColor", new Color(1,1,1,0.5f));
 		cam.RenderWithShader(maskShader, "");
 		
 		//********

@@ -85,6 +85,30 @@ public static class GraphicsConvert {
 		RenderTexture.ReleaseTemporary( bufferBlurXY );
 	}
 
+	public static void BloomExtractFilter(RenderTexture source, RenderTexture dest, float power){
+		Init ();
+		
+		//****** BRIGHTNESS ****** OK
+		RenderTexture buffer = RenderTexture.GetTemporary(source.width, source.height, 0);
+		Graphics.Blit(source, buffer, brightnessMaterial);
+		
+		//****** BLUR X ****** OK
+		RenderTexture bufferBlurX = RenderTexture.GetTemporary(source.width, source.height, 0);
+		blurXMaterial.SetFloat ("_Power", power);
+		Graphics.Blit(buffer, bufferBlurX, blurXMaterial);
+		
+		//****** BLUR Y ****** OK
+		RenderTexture bufferBlurXY = RenderTexture.GetTemporary(source.width, source.height, 0);
+		blurYMaterial.SetFloat ("_Power", power);
+		Graphics.Blit(bufferBlurX, bufferBlurXY, blurYMaterial);
+
+		Graphics.Blit(bufferBlurXY, dest);
+
+		RenderTexture.ReleaseTemporary( buffer );
+		RenderTexture.ReleaseTemporary( bufferBlurX );
+		RenderTexture.ReleaseTemporary( bufferBlurXY );
+	}
+
 	public static void RaidalBlurFilter(RenderTexture source, RenderTexture dest, float power, float count, float x, float y){
 		Init ();
 

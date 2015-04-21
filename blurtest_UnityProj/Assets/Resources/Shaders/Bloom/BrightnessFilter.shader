@@ -37,7 +37,7 @@
 				//get next pixels
 				float4 col = tex2D(_MainTex, i.texcoord);
 				float y = 0.299f * col.r + 0.587 * col.g + 0.114 * col.b;
-				col = float4(y,y,y,1.0f);
+				col = float4(y,y,y,col.a);
 				return col;
 			}
 			ENDCG
