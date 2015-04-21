@@ -1,6 +1,7 @@
 ﻿Shader "Custom/BlurFilterY" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
+		_Power ("Blur Power", Range(0,10)) = 1
 	}
 	
 	CGINCLUDE
@@ -9,7 +10,7 @@
 			sampler2D _MainTex;
 //			sampler2D _GrabTexture;
 			uniform half4 _MainTex_TexelSize;
-			
+			uniform float _Power;
 			
 			struct appdata{
 				float4 pos :POSITION;
@@ -60,7 +61,7 @@
 			float4 fragY(v2f i):COLOR{
 				//texel size
 //				float offX = _MainTex_TexelSize.x*2.0f;
-				float offY = _MainTex_TexelSize.y*2.0f;
+				float offY = _MainTex_TexelSize.y*2.0f * _Power;
 				float4 col = tex2D(_MainTex, i.texcoord) * 0.1f;
 				float4 col1 = tex2D(_MainTex, i.texcoord + float2(0, offY * 1.0f)) * 0.1f;
 				float4 col2 = tex2D(_MainTex, i.texcoord + float2(0, offY * 2.0f)) * 0.1f;

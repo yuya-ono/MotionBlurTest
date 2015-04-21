@@ -9,6 +9,7 @@ public class PostEffectCamera : MonoBehaviour {
 		cam = gameObject.camera;
 		cam.CopyFrom( Camera.main );
 		cam.enabled = false;
+
 	}
 	
 	virtual protected void Update(){

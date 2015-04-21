@@ -23,16 +23,16 @@ public class SimpleCharacterControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		float translation = Input.GetAxis("Vertical") * speed;
-		float rotation = Input.GetAxis("Horizontal") * speed;
-		translation *= Time.deltaTime;
-		rotation *= Time.deltaTime;
+		float forward = Input.GetAxis("Vertical") * speed;
+		float rightleft = Input.GetAxis("Horizontal") * speed;
+		forward *= Time.deltaTime;
+		rightleft *= Time.deltaTime;
 
-		transform.Translate(0, 0, translation);
+		transform.Translate(rightleft, 0, forward);
 
 
 		float h = cameraSpeed * horizontalSpeed * Input.GetAxis("Mouse X");
-		float v = cameraSpeed * verticalSpeed * Input.GetAxis("Mouse Y");
+		float v = - cameraSpeed * verticalSpeed * Input.GetAxis("Mouse Y");
 		if (characterCameraTransform.localRotation.y >= CAMERA_ANG_MAX_Y && v >= 0) {
 			v = 0;
 		}
